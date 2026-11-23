@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Hero from '../components/Hero.astro';
+import Introducao from '../components/Introducao.astro';
+import Servicos from '../components/Servicos.astro';
+import EstudioCenas from '../components/EstudioCenas.astro';
+import Automacao from '../components/Automacao.astro';
+import Metodo from '../components/Metodo.astro';
+import Briefing from '../components/Briefing.astro';
+import Rodape from '../components/Rodape.astro';
+---
+<BaseLayout>
+  <Cabecalho />
+  <main id="conteudo" tabindex="-1">
+    <Hero /><Introducao /><Servicos /><EstudioCenas /><Automacao /><Metodo /><Briefing />
+  </main>
+  <Rodape />
+</BaseLayout>

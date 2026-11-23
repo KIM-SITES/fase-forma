@@ -1,0 +1,10 @@
+---
+import { etapas } from '../data/conteudo';
+---
+<section class="method section" id="metodo" aria-labelledby="metodo-titulo" tabindex="-1">
+  <div class="wrap">
+    <div class="method-heading" data-reveal><div><p class="eyebrow">04 / Método</p><h2 id="metodo-titulo">Antes da luz, existe<br /><span class="muted">uma escolha bem feita.</span></h2></div><p>Do primeiro entendimento ao ajuste final, a boa experiência nasce de decisões claras.</p></div>
+    <ol class="method-steps">{etapas.map((etapa, i) => <li><span class="step-number" aria-hidden="true">0{i + 1}</span><h3>{etapa.nome}</h3><p>{etapa.texto}</p></li>)}</ol>
+    <p class="small method-note">Sequência ilustrativa de trabalho. Serviços reais dependem de avaliação profissional.</p>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "project": "FASE / FORMA",
+    "type": "conceptual-site",
+    "version": "1.0",
+    "note": "Tokens conceituais. JSON simples; ajustar o parser conforme ferramentas reais."
+  },
+  "color": {
+    "paper": {"$value": "#F6F3EE", "$type": "color"},
+    "ink": {"$value": "#101114", "$type": "color"},
+    "blueprint": {"$value": "#213247", "$type": "color"},
+    "stone": {"$value": "#D9D6D1", "$type": "color"},
+    "amber": {"$value": "#F2B544", "$type": "color"},
+    "light": {"$value": "#FFFDF8", "$type": "color"},
+    "muted": {"$value": "#575C63", "$type": "color"}
+  },
+  "typography": {
+    "displayFamily": {"$value": "Sora, sans-serif", "$type": "fontFamily"},
+    "bodyFamily": {"$value": "Instrument Sans, sans-serif", "$type": "fontFamily"},
+    "bodySize": {"$value": "1rem", "$type": "dimension"},
+    "bodyLeading": {"$value": 1.6, "$type": "number"},
+    "labelTracking": {"$value": "0.14em", "$type": "dimension"}
+  },
+  "layout": {
+    "maxContentWidth": {"$value": "1540px", "$type": "dimension"},
+    "pageGutter": {"$value": "clamp(20px, 5vw, 82px)", "$type": "string"},
+    "sectionSpacing": {"$value": "clamp(88px, 10vw, 160px)", "$type": "string"}
+  },
+  "motion": {
+    "fast": {"$value": "180ms", "$type": "duration"},
+    "medium": {"$value": "420ms", "$type": "duration"},
+    "hero": {"$value": "800ms", "$type": "duration"},
+    "ease": {"$value": "cubic-bezier(0.2, 0.8, 0.2, 1)", "$type": "cubicBezier"}
+  }
+}

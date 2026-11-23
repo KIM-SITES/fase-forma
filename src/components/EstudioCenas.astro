@@ -1,0 +1,38 @@
+---
+import { cenas } from '../data/conteudo';
+---
+<section class="studio section dark" id="ambientes" aria-labelledby="ambientes-titulo" tabindex="-1">
+  <div class="wrap">
+    <div class="studio-heading" data-reveal>
+      <div><p class="eyebrow">02 / Ambientes</p><h2 id="ambientes-titulo">Um espaço.<br /><span>Três maneiras de sentir.</span></h2></div>
+      <p>A luz altera a maneira como percebemos materiais, volumes e momentos. Explore três atmosferas ilustrativas para um mesmo ambiente.</p>
+    </div>
+    <div class="studio-grid" data-studio>
+      <div class="scene-stage media-fallback" id="visualizacao-cena" role="img" aria-label="Sala ilustrativa, atmosfera Acolher: luz suave e quente." style="--dimming: 0">
+        <p class="image-error" hidden>Não foi possível carregar esta visualização. Os controles e informações continuam disponíveis.</p>
+        {cenas.map((cena, i) => <picture class:list={['scene-image', { 'is-active': i === 0 }]} data-scene-image={cena.id} aria-hidden="true">
+          <source type="image/avif" srcset={cena.id === 'acolher' ? '/imagens/ambiente-1024.avif 1024w, /imagens/ambiente-1536.avif 1536w' : `/imagens/cena-${cena.imagem}-768.avif 768w, /imagens/cena-${cena.imagem}-1536.avif 1536w`} sizes="(max-width: 760px) 90vw, 70vw" />
+          <img src={cena.id === 'acolher' ? '/imagens/ambiente-1536.webp' : `/imagens/cena-${cena.imagem}-1536.webp`} width="1536" height="1024" alt="" loading="lazy" decoding="async" />
+        </picture>)}
+        <span class="scene-dimmer" aria-hidden="true"></span>
+        <span class="scene-stamp" aria-hidden="true">Estúdio de cenas<br />FASE / FORMA</span>
+      </div>
+      <div class="scene-controls">
+        <p class="control-label">Escolha uma atmosfera</p>
+        <div class="scene-buttons" role="group" aria-label="Atmosfera da cena">
+          {cenas.map((cena, i) => <button type="button" class="scene-button" aria-pressed={i === 0 ? 'true' : 'false'} aria-controls="visualizacao-cena" data-scene={cena.id} disabled><span class:list={['scene-icon', `scene-icon-${i}`]} aria-hidden="true"></span>{cena.nome}<span class="selected-mark" aria-hidden="true">✓</span></button>)}
+        </div>
+        <p class="scene-description" id="descricao-cena" aria-live="polite" aria-atomic="true">{cenas[0].descricao}</p>
+        <div class="intensity-control">
+          <div class="range-label"><label for="intensidade">Intensidade da cena</label><output id="intensidade-valor" for="intensidade">75%</output></div>
+          <input id="intensidade" type="range" min="20" max="100" step="5" value="75" aria-valuetext="75%" disabled />
+          <div class="range-ends" aria-hidden="true"><span>Mais contida</span><span>Mais presente</span></div>
+        </div>
+        <button type="button" class="reset-scene text-link" disabled>Reiniciar cena</button>
+        <p class="small studio-disclaimer">Simulação visual. A aparência real depende das luminárias, do ambiente e da instalação.</p>
+      </div>
+    </div>
+    <p class="studio-note small">Mesmo ambiente. Mesma câmera. Imagens conceituais geradas por IA; variações ilustrativas de iluminação.</p>
+    <noscript><div class="nojs-note"><p>As descrições das cenas podem ser consultadas abaixo. A demonstração interativa requer JavaScript.</p><ul>{cenas.map(cena => <li><strong>{cena.nome}:</strong> {cena.descricao}</li>)}</ul></div></noscript>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import { servicos } from '../data/conteudo';
+---
+<section class="solutions section" id="solucoes" aria-labelledby="solucoes-titulo" tabindex="-1">
+  <div class="wrap solutions-grid">
+    <div class="section-intro" data-reveal>
+      <p class="eyebrow">01 / Soluções</p>
+      <h2 id="solucoes-titulo">O essencial funciona.<br /><span class="muted">O ambiente ganha vida.</span></h2>
+      <p>Do que fica escondido nas paredes ao que aparece na luz: quatro frentes que se conectam.</p>
+      <figure class="technical-photo media-fallback">
+        <p class="image-error" hidden>Não foi possível carregar esta visualização. Os controles e informações continuam disponíveis.</p>
+        <picture>
+          <source type="image/avif" srcset="/imagens/infraestrutura-480.avif 480w, /imagens/infraestrutura-960.avif 960w" sizes="(max-width: 760px) 90vw, 36vw" />
+          <img src="/imagens/infraestrutura-960.webp" srcset="/imagens/infraestrutura-480.webp 480w, /imagens/infraestrutura-960.webp 960w" sizes="(max-width: 760px) 90vw, 36vw" width="960" height="640" loading="lazy" decoding="async" alt="Imagem conceitual de infraestrutura elétrica organizada em quadro de distribuição, sem marcas." />
+        </picture>
+        <figcaption>Infraestrutura · representação ilustrativa</figcaption>
+      </figure>
+    </div>
+    <div class="service-list">
+      {servicos.map((servico, i) => <article class="service-row">
+        <span class="service-index" aria-hidden="true">0{i + 1}</span>
+        <div><h3>{servico.titulo}</h3><p>{servico.descricao}</p><p class="service-detail">{servico.detalhe}</p></div>
+        <span class:list={['service-symbol', `symbol-${i + 1}`]} aria-hidden="true"></span>
+      </article>)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import { opcoes } from '../data/conteudo';
+---
+<section class="briefing section" id="briefing" aria-labelledby="briefing-titulo" tabindex="-1">
+  <div class="wrap briefing-grid">
+    <div class="section-intro" data-reveal>
+      <p class="eyebrow">05 / Comece por aqui</p><h2 id="briefing-titulo">Conte como você<br />imagina o seu espaço.</h2>
+      <p>Responda a algumas perguntas e veja um resumo do que seria necessário conversar em uma avaliação de projeto.</p>
+      <div class="privacy-note"><span class="privacy-symbol" aria-hidden="true">/</span><p>Demonstração de interface: não há contratação, cálculo de preço nem envio de dados.</p></div>
+      <p class="small">As respostas ficam apenas nesta página e são apagadas ao recarregar. Não inclua dados pessoais.</p>
+    </div>
+    <div class="briefing-panel">
+      <noscript><p class="nojs-note">O briefing interativo requer JavaScript. Nenhuma informação é enviada.</p></noscript>
+      <form id="briefing-form" method="dialog" autocomplete="off">
+        <fieldset id="briefing-fields" disabled>
+          <legend class="sr-only">Perguntas do briefing demonstrativo</legend>
+          <fieldset class="solution-field" aria-describedby="servico-error">
+            <legend>Qual solução você procura? <span class="required-note">(obrigatório)</span></legend>
+            <div class="radio-options">{opcoes.servico.map((opcao, i) => <label class="radio-option" for={`servico-${i}`}><input id={`servico-${i}`} type="radio" name="servico" value={opcao} required aria-describedby="servico-error" /><span>{opcao}</span></label>)}</div>
+            <p class="field-error" id="servico-error" hidden>Selecione uma opção para continuar.</p>
+          </fieldset>
+          <div class="field-pair">
+            <div class="field"><label for="ambiente">Qual é o ambiente? <span class="required-note">(obrigatório)</span></label><div class="select-wrap"><select id="ambiente" name="ambiente" required aria-describedby="ambiente-error"><option value="">Selecione</option>{opcoes.ambiente.map(opcao => <option>{opcao}</option>)}</select></div><p class="field-error" id="ambiente-error" hidden>Selecione uma opção para continuar.</p></div>
+            <div class="field"><label for="prioridade">Qual a prioridade principal? <span class="required-note">(obrigatório)</span></label><div class="select-wrap"><select id="prioridade" name="prioridade" required aria-describedby="prioridade-error"><option value="">Selecione</option>{opcoes.prioridade.map(opcao => <option>{opcao}</option>)}</select></div><p class="field-error" id="prioridade-error" hidden>Selecione uma opção para continuar.</p></div>
+          </div>
+          <div class="field"><label for="objetivo">Descreva seu objetivo <span class="required-note">(opcional)</span></label><textarea id="objetivo" name="objetivo" rows="3" maxlength="500" aria-describedby="objetivo-ajuda"></textarea><p class="field-help" id="objetivo-ajuda"><span>Até 500 caracteres. Não inclua dados pessoais.</span><span id="caracteres" aria-hidden="true">0 / 500</span></p></div>
+          <div class="field"><label for="etapa">Sua etapa atual <span class="required-note">(opcional)</span></label><div class="select-wrap"><select id="etapa" name="etapa"><option value="">Selecione, se desejar</option>{opcoes.etapa.map(opcao => <option>{opcao}</option>)}</select></div></div>
+          <button class="button generate-button" type="submit">Gerar resumo</button>
+        </fieldset>
+      </form>
+      <div class="briefing-result" id="briefing-resultado" hidden>
+        <p class="eyebrow">Tudo começa com clareza.</p><h3 id="resumo-titulo" tabindex="-1">Seu briefing demonstrativo</h3>
+        <p>Estas informações organizam uma conversa inicial. Não representam orçamento, diagnóstico ou proposta comercial.</p>
+        <pre id="resumo-texto" tabindex="0" aria-label="Texto do briefing, disponível para seleção e cópia"></pre>
+        <div class="result-actions"><button class="button" id="copiar-resumo" type="button">Copiar resumo</button><button class="text-link" id="editar-respostas" type="button">Editar respostas</button></div>
+        <button class="text-link start-again" id="recomecar" type="button">Começar novamente</button>
+      </div>
+      <p id="briefing-status" class="briefing-status small" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>

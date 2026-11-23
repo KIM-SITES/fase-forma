@@ -1,0 +1,40 @@
+---
+import { rotinas } from '../data/conteudo';
+---
+<section class="automation section" id="automacao" aria-labelledby="automacao-titulo" tabindex="-1">
+  <div class="wrap automation-grid">
+    <div class="section-intro" data-reveal>
+      <p class="eyebrow">03 / Controle</p><h2 id="automacao-titulo">A casa acompanha<br /><span class="muted">o seu ritmo.</span></h2>
+      <p>Não é sobre transformar a rotina em comandos complicados. É sobre encontrar o nível certo de luz no momento certo.</p>
+      <div class="routine-buttons" role="group" aria-label="Exemplos de rotinas">
+        {rotinas.map((rotina, i) => <button type="button" data-routine={rotina.id} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls="planta-rotina" disabled>{rotina.nome}</button>)}
+      </div>
+      <p id="rotina-descricao" class="routine-description" aria-live="polite" aria-atomic="true">{rotinas[0].descricao}</p>
+      <p class="small">Interação ilustrativa: nenhum dispositivo está conectado.</p>
+      <noscript><ul>{rotinas.slice(1).map(rotina => <li><strong>{rotina.nome}:</strong> {rotina.descricao}</li>)}</ul></noscript>
+    </div>
+    <div class="blueprint" id="planta-rotina" data-active-routine="chegada">
+      <div class="blueprint-top"><span>Estudo de uso</span><span>Luz + rotina</span></div>
+      <svg class="floorplan" viewBox="0 0 600 480" role="img" aria-labelledby="planta-titulo planta-desc">
+        <title id="planta-titulo">Planta conceitual de iluminação residencial</title>
+        <desc id="planta-desc">Esquema de sala, circulação e área de leitura. As áreas de luz destacadas mudam conforme o exemplo de rotina selecionado.</desc>
+        <defs><radialGradient id="luz-planta"><stop offset="0" stop-color="#F2B544" stop-opacity=".55" /><stop offset="1" stop-color="#F2B544" stop-opacity="0" /></radialGradient><pattern id="grade" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" stroke-opacity=".07" /></pattern></defs>
+        <rect width="600" height="480" fill="url(#grade)" />
+        <g class="plan-light light-passage"><ellipse cx="132" cy="246" rx="88" ry="170" fill="url(#luz-planta)" /></g>
+        <g class="plan-light light-living"><ellipse cx="360" cy="208" rx="160" ry="115" fill="url(#luz-planta)" /></g>
+        <g class="plan-light light-reading"><circle cx="430" cy="355" r="95" fill="url(#luz-planta)" /></g>
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M70 65H528V417H70V300M70 235V65M193 65V174M193 232V417M193 285H378M442 285H528" stroke-width="4" />
+          <path d="M70 300h65a65 65 0 0 0-65-65M193 174h58a58 58 0 0 1-58 58M378 285v64a64 64 0 0 0 64-64" stroke-opacity=".5" />
+          <rect x="279" y="96" width="199" height="65" rx="5" /><path d="M291 96v53h174V96M347 96v53M407 96v53" />
+          <rect x="329" y="195" width="91" height="45" rx="20" /><circle cx="449" cy="357" r="28" /><path d="m427 341 43 33M421 361l17 21M461 332l17 21" />
+          <path d="M103 104h52v66h-52zM120 104v66M259 417v-37h60v37M490 190v54" stroke-opacity=".5" />
+          <path d="M70 38H528M70 30v16M528 30v16M551 65v352M543 65h16M543 417h16" stroke-opacity=".4" stroke-width="1" />
+          <path d="M110 204h43M131 183v43M360 180v12M354 186h12M443 311v12M437 317h12" stroke="#F2B544" stroke-width="2" />
+        </g>
+        <g fill="currentColor" font-family="Instrument Sans Variable, sans-serif" font-size="12" letter-spacing="2"><text x="305" y="267">ESTAR</text><text x="350" y="397">LEITURA</text><text transform="translate(150 367) rotate(-90)">CIRCULAÇÃO</text></g>
+      </svg>
+      <div class="blueprint-foot"><span class="plan-key">Áreas de luz ilustrativas</span><span>Sem escala</span></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+const title = 'Fase / Forma — Elétrica, iluminação e automação | Projeto demonstrativo';
+const description = 'Conceito de site para uma empresa fictícia de instalações elétricas, iluminação arquitetônica e automação residencial. Experiência demonstrativa de design e desenvolvimento web.';
+---
+<!doctype html>
+<html lang="pt-BR" data-type="service">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#F6F3EE" />
+    <meta name="page-type" content="service" />
+    <meta name="site-kind" content="other" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/imagens/social.jpg" />
+    <meta property="og:image:alt" content="FASE / FORMA — projeto demonstrativo de elétrica, iluminação e automação" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo" tabindex="0">Pular para o conteúdo</a>
+    <slot />
+    <script>
+      import '../scripts/menu';
+      import '../scripts/cenas';
+      import '../scripts/briefing';
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>
